@@ -3,6 +3,7 @@ Some notes recording experence of learning cpp
 ## wiki
 * [Android.mk](https://github.com/nonelittlesong/study-cpp/wiki/Android.mk)
 * [CmakeLists.txt to build .so in AS](https://github.com/nonelittlesong/study-cpp/wiki/CmakeLists.txt-to-build-.so-in-AS)
+* [形参对实参的限制]()
 ## compile and run in ubuntu
 https://blog.csdn.net/liuzubing/article/details/78303167  
 ```c++
