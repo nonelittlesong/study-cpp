@@ -16,3 +16,12 @@ g++ -o hello hello.cpp
 ```
 ## compile and run opencv c++
 https://www.cnblogs.com/dyufei/p/8205077.html  
+## native打印android log
+```c++
+#include <android/log.h>
+
+#define TAG "MtcnnCpp"
+#define LOGD(...) __android_log_print(ANDROID_LOG_DEBUG,TAG,__VA_ARGS__)
+
+LOGD("firstBox.size: %d",firstBbox_.size());
+```
