@@ -17,6 +17,13 @@ g++ -o hello hello.cpp
 ## compile and run opencv c++
 https://www.cnblogs.com/dyufei/p/8205077.html  
 ## native打印android log
+CmakeLists.txt:
+```
+target_link_libraries(native-lib
+                      
+                      log)
+```
+cpp:
 ```c++
 #include <android/log.h>
 
