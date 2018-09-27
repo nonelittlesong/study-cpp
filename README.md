@@ -38,7 +38,7 @@ message(STATUS "bulabula")
 message(FATAL_ERROR "bulabula")
 ```
 
-## Troubleshotting
+## Troubleshooting
 ### undefined reference to '__kmpc_for_static_init_4'
 ```
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fopenmp")
