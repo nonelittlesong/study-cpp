@@ -32,6 +32,12 @@ cpp:
 
 LOGD("firstBox.size: %d",firstBbox_.size());
 ```
+## CMakeLists.txt打印信息
+```
+message(STATUS "bulabula")
+message(FATAL_ERROR "bulabula")
+```
+
 ## Troubleshotting
 ### undefined reference to '__kmpc_for_static_init_4'
 ```
