@@ -16,7 +16,7 @@ g++ -o hello hello.cpp
 ```
 ## compile and run opencv c++
 https://www.cnblogs.com/dyufei/p/8205077.html  
-## native打印android log
+## 1. native打印android log
 CmakeLists.txt:
 ```
 target_link_libraries(native-lib
@@ -32,11 +32,12 @@ cpp:
 
 LOGD("firstBox.size: %d",firstBbox_.size());
 ```
-## CMakeLists.txt打印信息
+## 2. CMakeLists.txt打印信息
 ```
 message(STATUS "bulabula")
 message(FATAL_ERROR "bulabula")
 ```
+## 3. 类必须在声明时初始化？
 
 ## Troubleshooting
 ### undefined reference to '__kmpc_for_static_init_4'
