@@ -38,7 +38,15 @@ message(STATUS "bulabula")
 message(FATAL_ERROR "bulabula")
 ```
 ## 3. 类必须在声明时初始化？
-
+## 4. 获取当前时间
+```cpp
+static unsigned long get_current_time(void)
+{
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return (tv.tv_sec*1000000 + tv.tv_usec);
+}
+```
 ## Troubleshooting
 ### undefined reference to '__kmpc_for_static_init_4'
 ```
