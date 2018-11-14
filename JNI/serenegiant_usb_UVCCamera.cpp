@@ -34,6 +34,7 @@ static ID_TYPE nativeCreate(JNIEnv *env, jobject thiz) {
     RETURN(reinterpret_cast<ID_TYPE>(camera), ID_TYPE);
 }
 
+///////////////////////////////////// 注册native方法 /////////////////////////////////////////////////////
 jint registerNativeMethods(JNIEnv *env, const char *class_name, JNINativeMethod *methods, int num_methods) {
     int result = 0;
     jclass clazz = env->FindClass(class_name);
