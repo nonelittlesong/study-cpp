@@ -50,7 +50,7 @@ static unsigned long get_current_time(void)
     return (tv.tv_sec*1000000 + tv.tv_usec);
 }
 ```
-## 4. 什么时候用指针
+## 4. 什么时候用对象指针
 * 实现多态  
 * 参数传递  
 
