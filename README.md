@@ -53,6 +53,8 @@ static unsigned long get_current_time(void)
 ## 4. 什么时候用对象指针
 * 实现多态  
 * 参数传递  
+## 5. #pragma interface and #pragma implementation
+https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Interface.html  
 
 ## Troubleshooting
 ### undefined reference to '__kmpc_for_static_init_4'
