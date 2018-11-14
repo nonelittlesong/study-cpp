@@ -34,3 +34,29 @@ static ID_TYPE nativeCreate(JNIEnv *env, jobject thiz) {
     RETURN(reinterpret_cast<ID_TYPE>(camera), ID_TYPE);
 }
 
+jint registerNativeMethods(JNIEnv *env, const char *class_name, JNINativeMethod *methods, int num_methods) {
+    int result = 0;
+    jclass clazz = env->FindClass(class_name);
+    if (LIKELY(clazz)) {
+        int result = env->RegisterNatives(clazz, methods, num_methods);
+        if (UNLIKELY(result<0)) {
+            LOGE("registerNativeMethods failed(class=%s)", class_name);
+        }
+    } else {
+        LOGE("registerNativeMethods: class'%s' not found", class_name);
+    }
+    return result;
+}
+
+static JNINativeMethod methods[] = {
+    {"nativeCreate", "()J", (void *)nativeCreate},
+    { "nativeSetButtonCallback", "(JLcom/serenegiant/usb/IButtonCallback;)I", (void *) nativeSetButtonCallback },
+}
+
+int register_uvccamera(JNIEnv *env) {
+    LOGV("register_uvccamera:");
+    if (registerNativeMethods(env, "com/serenegiant/usb/UVCCamera", methods, NUM_ARRAY_ELEMENTS(methods)) < 0) {
+        return -1;
+    }
+    return 0;
+}
