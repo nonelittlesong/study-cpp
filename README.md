@@ -1,6 +1,6 @@
 # study_cpp
-TODO
-* [x] opengl  
+TODO  
+* [ ] opengl  
 
 Some notes recording experence of learning cpp  
 *wiki*  
