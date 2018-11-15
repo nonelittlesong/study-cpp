@@ -1,4 +1,7 @@
 # study_cpp
+TODO
+* [ ] opengl  
+
 Some notes recording experence of learning cpp  
 *wiki*  
 * [Android.mk](https://github.com/nonelittlesong/study-cpp/wiki/Android.mk)
