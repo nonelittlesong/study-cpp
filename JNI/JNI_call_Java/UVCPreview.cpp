@@ -1,3 +1,13 @@
+typedef struct {
+    jmethodID onFrame;
+} Fields_iframecallback;
+
+Fields_iframecallback iframecallback_fields; // 保存回调函数的ID
+
+jobject mFrameCallbackObj; // 回调函数的接口实例
+
+
+// 设置回调函数
 int UVCPreview::setFrameCallback(JNIEnv *env, jobject frame_callback_obj, int pixel_format) {
     ENTER();
     pthread_mutex_lock(&capture_mutex);
@@ -38,4 +48,35 @@ int UVCPreview::setFrameCallback(JNIEnv *env, jobject frame_callback_obj, int pi
     }
     pthread_mutex_unlock(&capture_mutex);
     RETURN(0, int);
+}
+// 调用回调函数
+void UVCPreview::do_capture_callback(JNIEnv *env, uvc_frame_t *frame) {
+    ENTER();
+    if (LIKELY(frame)) {
+        uvc_frame_t *callback_frame = frame;
+        if (mFrameCallbackObj) {
+            if (mFrameCallbackFunc) {
+                callback_frame = get_frame(callbackPixelBytes);
+                if (LIKELY(callback_frame)) {
+                    int b = mFrameCallbackFunc(frame, callback_frame);
+                    recycle_frame(frame);
+                    if (UNLIKELY(b)) {
+                        LOGW("failed to convert for callback frame");
+                        goto SKIP;
+                    }
+                } else {
+                    LOGW("failed to allocate for callback frame");
+                    callback_frame = frame;
+                    goto SKIP;
+                }
+            }
+            jobject buf = env->NewDirectByteBuffer(callback_frame->data, callbackPixelBytes);
+            env->CallVoidMethod(mFrameCallbackObj, iframecallback_fields.onFrame, buf);
+            env->ExceptionClear();
+            env->DeleteLocalRef(buf);
+        }
+SKIP:
+        recycle_frame(callback_frame);
+    }
+    EXIT();
 }
