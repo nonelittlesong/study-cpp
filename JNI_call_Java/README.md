@@ -1,1 +1,1 @@
-JNI调用java方法的例子
+JNI调用java方法  
