@@ -40,3 +40,5 @@ Java_com_myndk_MainActivity_getStr(JNIEnv *env, jobject instance,jobjectArray oa
     return env->NewStringUTF(str.data());
 }
 ```
+## C++传递结构体、String、数组对象给Java
+https://blog.csdn.net/susubuhui/article/details/53088453  
