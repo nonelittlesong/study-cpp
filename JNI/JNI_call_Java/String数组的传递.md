@@ -41,4 +41,5 @@ Java_com_myndk_MainActivity_getStr(JNIEnv *env, jobject instance,jobjectArray oa
 }
 ```
 ## C++传递结构体、String、数组对象给Java
+作为返回值：  
 https://blog.csdn.net/susubuhui/article/details/53088453  
