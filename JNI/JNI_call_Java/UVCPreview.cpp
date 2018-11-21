@@ -8,6 +8,19 @@ jobject mFrameCallbackObj; // 回调函数的接口实例
 
 
 // 设置回调函数
+static jint nativeSetFrameCallback(JNIEnv *env, jobject thiz,
+	ID_TYPE id_camera, jobject jIFrameCallback, jint pixel_format) {
+
+	jint result = JNI_ERR;
+	ENTER();
+	UVCCamera *camera = reinterpret_cast<UVCCamera *>(id_camera);
+	if (LIKELY(camera)) {
+		jobject frame_callback_obj = env->NewGlobalRef(jIFrameCallback);
+		result = camera->setFrameCallback(env, frame_callback_obj, pixel_format);
+	}
+	RETURN(result, jint);
+}
+
 int UVCPreview::setFrameCallback(JNIEnv *env, jobject frame_callback_obj, int pixel_format) {
     ENTER();
     pthread_mutex_lock(&capture_mutex);
