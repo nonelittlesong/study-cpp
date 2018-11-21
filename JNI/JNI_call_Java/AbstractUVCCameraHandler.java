@@ -11,3 +11,5 @@ private final IFrameCallback mIFrameCallback = new IFrameCallback() {
         }
     }
 }
+
+private static final native int nativeSetFrameCallback(final long mNativePtr, final IFrameCallback callback, final int pixelFormat);
