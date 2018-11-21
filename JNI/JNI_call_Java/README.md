@@ -17,3 +17,7 @@ jlong GetDirectBufferCapacity(jobject buf);
 ## Troubleshotting
 ### 1. use of invalid jobject 0xffcf7e30
 JNI每个线程对应一个JNIEnv\*, 当前JNIEnv\*不能访问其他JNIEnv\*。  
+需要全局引用：  
+```
+jobject count_callback_obj = env->NewGlobalRef(callback_obj);
+```
