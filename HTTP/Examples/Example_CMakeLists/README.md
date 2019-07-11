@@ -1,4 +1,7 @@
-参考：  
+参考：
+* https://blog.csdn.net/lee353086/article/details/38776471
+
+
 假设有一个TestHttpClient Solution，这个Solution下分别有TestHttpClient工程（可执行程序）和HttpClient工程（动态库）。  
 这样我们需要三个CMakeLists.txt文件。其中HttpClient还依赖了libcurl第三方库。  
 下面分别是不同目录下的CMakeLists.txt文件清单  
