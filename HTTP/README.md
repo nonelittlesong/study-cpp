@@ -15,5 +15,10 @@ libcurl4-openssl-dev 依赖于 libcurl4，安装可能有问题。
 $ sudo apt-get install libcurl4-openssl-dev
 # 或者
 $ sudo apt-get install libcurl4-gnutls-dev
-```
 
+$ whereis curl
+curl: /usr/bin/curl /usr/include/curl /usr/share/man/man1/curl.1.gz
+
+$ pkg-config libcurl --cflags --libs
+-lcurl
+```
