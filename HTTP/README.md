@@ -1,7 +1,7 @@
 * [libcurl](https://curl.haxx.se/libcurl/)
 * [curl github](https://github.com/curl/curl)
 
-# 安装 libcurl
+## 安装 libcurl
 查看系统架构：  
 ```
 $ uname -a
